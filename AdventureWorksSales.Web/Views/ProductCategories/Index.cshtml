@@ -1,0 +1,37 @@
+﻿@model IEnumerable<AdventureWorksSales.Web.Models.ProductCategory>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ProductID</th>
+            <th>Name</th>
+            <th>Modified Date</th>
+            <th> Edit</th>
+            <th>Details </th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ProductCategoryID</td>
+            <td>@item.Name</td>
+            <td>@item.ModifiedDate</td>
+            <td>@Html.ActionLink("Edit", "Edit", new {  id=item.ProductCategoryID })</td>
+            <td> @Html.ActionLink("Details", "Details", new { id=item.ProductCategoryID })</td>
+            <td> @Html.ActionLink("Delete", "Delete", new { id=item.ProductCategoryID})</td>
+
+        </tr>
+    }
+
+</table>
