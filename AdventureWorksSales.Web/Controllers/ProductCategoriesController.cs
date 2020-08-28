@@ -24,7 +24,7 @@ namespace AdventureWorksSales.Web.Controllers
         public ActionResult Details(int? id)
         {
             
-            ProductCategory productCategory = db.ProductCategories.Find(id);
+            ProductCategory productCategory = db.ProductCategories.SingleOrDefault(d=>d.ProductCategoryID == id);
             if (productCategory == null)
             {
                 return HttpNotFound();
@@ -53,7 +53,7 @@ namespace AdventureWorksSales.Web.Controllers
         }
 
         // GET: ProductCategories/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
            
             ProductCategory productCategory = db.ProductCategories.SingleOrDefault(m=>m.ProductCategoryID == id);
@@ -82,7 +82,7 @@ namespace AdventureWorksSales.Web.Controllers
         public ActionResult Delete(int? id)
         {
           
-            ProductCategory productCategory = db.ProductCategories.Find(id);
+            ProductCategory productCategory = db.ProductCategories.SingleOrDefault(x=>x.ProductCategoryID==id);
             if (productCategory == null)
             {
                 return HttpNotFound();
@@ -93,9 +93,9 @@ namespace AdventureWorksSales.Web.Controllers
         // POST: ProductCategories/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(int? id)
         {
-            ProductCategory productCategory = db.ProductCategories.Find(id);
+            ProductCategory productCategory = db.ProductCategories.SingleOrDefault(m=>m.ProductCategoryID == id);
             db.ProductCategories.Remove(productCategory);
             db.SaveChanges();
             return RedirectToAction("Index");

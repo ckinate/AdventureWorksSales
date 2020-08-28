@@ -16,7 +16,6 @@
             <th>Name</th>
             <th>Modified Date</th>
             <th> Edit</th>
-            <th>Details </th>
             <th>Delete</th>
         </tr>
     </thead>
@@ -28,7 +27,6 @@
             <td>@item.Name</td>
             <td>@item.ModifiedDate</td>
             <td>@Html.ActionLink("Edit", "Edit", new {  id=item.ProductCategoryID })</td>
-            <td> @Html.ActionLink("Details", "Details", new { id=item.ProductCategoryID })</td>
             <td> @Html.ActionLink("Delete", "Delete", new { id=item.ProductCategoryID})</td>
 
         </tr>

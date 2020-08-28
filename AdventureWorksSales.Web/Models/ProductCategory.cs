@@ -15,7 +15,7 @@ namespace AdventureWorksSales.Web.Models
 
     public partial class ProductCategory
     {
-        
+        [Key]
         public int ProductCategoryID { get; set; }
         public string Name { get; set; }
         public System.Guid rowguid { get; set; }
