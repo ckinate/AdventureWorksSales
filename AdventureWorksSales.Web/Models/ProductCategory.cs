@@ -19,6 +19,9 @@ namespace AdventureWorksSales.Web.Models
         public int ProductCategoryID { get; set; }
         public string Name { get; set; }
         public System.Guid rowguid { get; set; }
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/YYYY}", ApplyFormatInEditMode = true)]
         public System.DateTime ModifiedDate { get; set; }
     }
 }
